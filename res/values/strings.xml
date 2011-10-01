@@ -2,4 +2,7 @@
 <resources>
     <string name="hello">Hello World, BelanjawanActivity!</string>
     <string name="app_name">Belanjawan</string>
+    <string name="managebudget_label">Manage Budget</string>
+    <string name="managebudget_shortcut">b</string>
+    <string name="managebudget_title">Your Budget</string>
 </resources>

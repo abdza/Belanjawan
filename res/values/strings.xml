@@ -5,4 +5,9 @@
     <string name="managebudget_label">Manage Budget</string>
     <string name="managebudget_shortcut">b</string>
     <string name="managebudget_title">Your Budget</string>
+    <string name="editbudget_label">Edit Budget</string>    
+    <string name="editbudget_title">Edit Budget</string>
+    <string name="addincome_label">Add Income</string>
+    <string name="addexpenses_label">Add Expenses</string>
 </resources>
+

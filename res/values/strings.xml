@@ -9,5 +9,8 @@
     <string name="editbudget_title">Edit Budget</string>
     <string name="addincome_label">Add Income</string>
     <string name="addexpenses_label">Add Expenses</string>
+    <string name="budget_name_title">Budget</string>
+    <string name="budget_amount_title">Amount</string>
+    <string name="save_budget_label">Save</string>
 </resources>
 

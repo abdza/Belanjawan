@@ -7,9 +7,11 @@
 <Button android:id="@+id/addincome"
 	android:layout_width="fill_parent"	
 	android:layout_height="wrap_content"
-	android:text="@string/addincome_label" />
+	android:text="@string/addincome_label"
+	android:onClick="addIncome" />
 <Button android:id="@+id/addexpenses"
 	android:layout_width="fill_parent"	
 	android:layout_height="wrap_content"
-	android:text="@string/addexpenses_label" />
+	android:text="@string/addexpenses_label"
+	android:onClick="addExpenses" />
 </LinearLayout>

@@ -5,8 +5,56 @@
     android:layout_height="fill_parent"
     >
 <TextView  
+	android:id="@+id/editbudget_title"
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
     android:text="@string/editbudget_title"
     />
+<TableLayout
+android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+>
+<TableRow
+android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+>
+<TextView  
+	android:id="@+id/budget_name_title"
+    android:text="@string/budget_name_title"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    />
+    <EditText  
+	android:id="@+id/budget_name"
+	android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    />
+</TableRow>
+<TableRow
+android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+>
+<TextView  
+	android:id="@+id/budget_amount_title"
+    android:text="@string/budget_amount_title"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    />
+    <EditText  
+	android:id="@+id/budget_amount"
+	android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    />
+</TableRow>
+<TableRow
+android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+>
+<Button android:id="@+id/savebudget"
+	android:layout_width="fill_parent"	
+	android:layout_height="wrap_content"
+	android:text="@string/save_budget_label"
+	android:onClick="saveBudget" />
+	</TableRow>
+</TableLayout>
 </LinearLayout>

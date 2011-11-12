@@ -7,6 +7,21 @@
 <TextView  
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
-    android:text="@string/hello"
+    android:text="@string/spend_title"
     />
+    <ListView
+      android:id="@+id/mainexpenselist"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
+    
+      <TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/income_title"
+    />
+    <ListView
+      android:id="@+id/mainincomelist"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
+      
 </LinearLayout>

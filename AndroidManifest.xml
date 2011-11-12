@@ -19,5 +19,8 @@
 		<activity android:name=".EditBudgetActivity"
 				  android:label="@string/editbudget_title">
 		</activity>
+		<activity android:name=".TransactionActivity"
+				  android:label="@string/dotransaction_title">
+		</activity>
     </application>
 </manifest>

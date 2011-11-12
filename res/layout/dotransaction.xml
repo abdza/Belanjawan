@@ -5,10 +5,10 @@
     android:layout_height="fill_parent"
     >
 <TextView  
-	android:id="@+id/editbudget_title"
+	android:id="@+id/dotransaction_title"
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
-    android:text="@string/editbudget_title"
+    android:text="@string/dotransaction_title"
     />
 <TableLayout
 android:layout_width="fill_parent"
@@ -19,13 +19,13 @@ android:layout_width="fill_parent"
     android:layout_height="fill_parent"
 >
 <TextView  
-	android:id="@+id/budget_name_title"
-    android:text="@string/budget_name_title"
+	android:id="@+id/transaction_amount_title"
+    android:text="@string/amount_title"
     android:layout_width="wrap_content"
     android:layout_height="fill_parent"
     />
     <EditText  
-	android:id="@+id/budget_name"
+	android:id="@+id/transaction_amount"
 	android:layout_width="wrap_content"
     android:layout_height="fill_parent"
     />
@@ -35,13 +35,13 @@ android:layout_width="fill_parent"
     android:layout_height="fill_parent"
 >
 <TextView  
-	android:id="@+id/budget_amount_title"
-    android:text="@string/amount_title"
+	android:id="@+id/transaction_desc_title"
+    android:text="@string/transaction_desc_title"
     android:layout_width="wrap_content"
     android:layout_height="fill_parent"
     />
     <EditText  
-	android:id="@+id/budget_amount"
+	android:id="@+id/transaction_desc"
 	android:layout_width="wrap_content"
     android:layout_height="fill_parent"
     />
@@ -50,11 +50,11 @@ android:layout_width="fill_parent"
 android:layout_width="fill_parent"
     android:layout_height="fill_parent"
 >
-<Button android:id="@+id/savebudget"
+<Button android:id="@+id/savetransaction"
 	android:layout_width="fill_parent"	
 	android:layout_height="wrap_content"
 	android:text="@string/save_label"
-	android:onClick="saveBudget" />
+	android:onClick="saveTransaction" />
 	</TableRow>
 </TableLayout>
 </LinearLayout>

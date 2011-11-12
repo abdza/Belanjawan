@@ -10,7 +10,11 @@
     <string name="addincome_label">Add Income</string>
     <string name="addexpenses_label">Add Expenses</string>
     <string name="budget_name_title">Budget</string>
-    <string name="budget_amount_title">Amount</string>
-    <string name="save_budget_label">Save</string>
+    <string name="amount_title">Amount</string>
+    <string name="save_label">Save</string>
+    <string name="income_title">Got Income</string>
+    <string name="spend_title">New Spending</string>
+    <string name="dotransaction_title">New Transaction</string>
+    <string name="transaction_desc_title">Description</string>
 </resources>
 

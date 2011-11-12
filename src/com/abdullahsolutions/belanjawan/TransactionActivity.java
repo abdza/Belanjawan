@@ -1,5 +1,8 @@
 package com.abdullahsolutions.belanjawan;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import android.app.Activity;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
@@ -31,6 +34,9 @@ public class TransactionActivity extends Activity {
 		values.put("amount", ((EditText)findViewById(R.id.transaction_amount)).getText().toString());
 		values.put("description", ((EditText)findViewById(R.id.transaction_desc)).getText().toString());
 		values.put("budget_id", budget_id);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
+		Date date = new Date();
+		values.put("transactiondate", dateFormat.format(date));
 		db.insertOrThrow("budget_transaction", null, values);	
 		finish();
 	}

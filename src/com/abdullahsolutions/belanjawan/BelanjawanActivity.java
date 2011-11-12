@@ -20,7 +20,7 @@ public class BelanjawanActivity extends Activity {
 	private BelanjawanData belanjawandata;
 	
 	private static int[] TO = {R.id.rowname,R.id.rowamount};
-	private static String[] FROM = { "name","amount"};
+	private static String[] FROM = { "name","bdgt_amount"};
 	
     /** Called when the activity is first created. */
     @Override
@@ -61,7 +61,7 @@ public class BelanjawanActivity extends Activity {
     public void updateLists(){
 		SQLiteDatabase db = belanjawandata.getReadableDatabase();
 		//Cursor income = db.query("budget", FROM, "budgettype='income'", null, null, null, null);
-		final Cursor income = db.rawQuery("select _id,name,amount from budget where budgettype='income'", null);
+		final Cursor income = db.rawQuery("select _id,name,amount - (select sum(bt.amount) from budget_transaction as bt where bt.budget_id=budget._id) as bdgt_amount from budget where budgettype='income'", null);
 		startManagingCursor(income);
 		SimpleCursorAdapter incomeadapter = new SimpleCursorAdapter(this,R.layout.budgetitem,income,FROM,TO){
 		    @Override
@@ -75,7 +75,7 @@ public class BelanjawanActivity extends Activity {
 		ListView incomelist = (ListView)findViewById(R.id.mainincomelist);
 		incomelist.setAdapter(incomeadapter);		
 		incomelist.setOnItemClickListener(transactionClickedHandler); 
-		final Cursor expense = db.rawQuery("select _id,name,amount from budget where budgettype='expenses'", null);
+		final Cursor expense = db.rawQuery("select _id,name,amount - (select sum(bt.amount) from budget_transaction as bt where bt.budget_id=budget._id) as bdgt_amount from budget where budgettype='expenses'", null);
 		startManagingCursor(expense);
 		SimpleCursorAdapter expenseadapter = new SimpleCursorAdapter(this,R.layout.budgetitem,expense,FROM,TO){
 		    @Override

@@ -9,12 +9,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
-import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
-import android.view.ViewGroup;
+import android.widget.AdapterView.OnItemLongClickListener;
 
 public class BelanjawanActivity extends Activity {
 	private BelanjawanData belanjawandata;
@@ -38,6 +38,13 @@ public class BelanjawanActivity extends Activity {
             // Display a messagebox.            
         	startActivity(new Intent(parent.getContext(),TransactionActivity.class).putExtra("budget_id", (Integer)v.getTag()));
         }
+    };
+    
+    private OnItemLongClickListener transactionLongClickedHandler = new OnItemLongClickListener () {
+    	public boolean onItemLongClick(AdapterView<?> parent, View v, int pos, long id) {
+    		startActivity(new Intent(parent.getContext(),ListTransactionActivity.class).putExtra("budget_id", (Integer)v.getTag()));
+            return true;
+    	} 
     };
     
     @Override
@@ -74,7 +81,8 @@ public class BelanjawanActivity extends Activity {
 
 		ListView incomelist = (ListView)findViewById(R.id.mainincomelist);
 		incomelist.setAdapter(incomeadapter);		
-		incomelist.setOnItemClickListener(transactionClickedHandler); 
+		incomelist.setOnItemClickListener(transactionClickedHandler);
+		incomelist.setOnItemLongClickListener(transactionLongClickedHandler); 
 		final Cursor expense = db.rawQuery("select _id,name,amount - (select sum(bt.amount) from budget_transaction as bt where bt.budget_id=budget._id and strftime('%m %Y',bt.transactiondate)=strftime('%m %Y','now') ) as bdgt_amount from budget where budgettype='expenses'", null);
 		startManagingCursor(expense);
 		SimpleCursorAdapter expenseadapter = new SimpleCursorAdapter(this,R.layout.budgetitem,expense,FROM,TO){
@@ -88,5 +96,6 @@ public class BelanjawanActivity extends Activity {
 		ListView expenselist = (ListView)findViewById(R.id.mainexpenselist);
 		expenselist.setAdapter(expenseadapter);
 		expenselist.setOnItemClickListener(transactionClickedHandler);
+		expenselist.setOnItemLongClickListener(transactionLongClickedHandler);
 	}
 }

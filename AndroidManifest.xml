@@ -22,5 +22,8 @@
 		<activity android:name=".TransactionActivity"
 				  android:label="@string/dotransaction_title">
 		</activity>
+		<activity android:name=".ListTransactionActivity"
+				  android:label="@string/transactionlist_title">
+		</activity>
     </application>
 </manifest>

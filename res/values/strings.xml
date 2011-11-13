@@ -16,5 +16,7 @@
     <string name="spend_title">New Spending</string>
     <string name="dotransaction_title">New Transaction</string>
     <string name="transaction_desc_title">Description</string>
+    <string name="transactionlist_title">Transactions</string>
 </resources>
+
 

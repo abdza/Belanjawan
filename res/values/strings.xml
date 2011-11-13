@@ -3,7 +3,9 @@
     <string name="hello">Hello World, BelanjawanActivity!</string>
     <string name="app_name">Belanjawan</string>
     <string name="managebudget_label">Manage Budget</string>
-    <string name="managebudget_shortcut">b</string>
+    <string name="managebudget_shortcut">b</string>    
+    <string name="dumpdata_label">Dump Data</string>
+    <string name="dumpdata_shortcut">d</string>
     <string name="managebudget_title">Your Budget</string>
     <string name="editbudget_label">Edit Budget</string>    
     <string name="editbudget_title">Edit Budget</string>

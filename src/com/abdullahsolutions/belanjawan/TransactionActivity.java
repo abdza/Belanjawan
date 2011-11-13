@@ -9,7 +9,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 public class TransactionActivity extends Activity {
 	private BelanjawanData belanjawandata;
@@ -23,8 +22,7 @@ public class TransactionActivity extends Activity {
         if(extras !=null)
         {
         	budget_id = extras.getInt("budget_id");
-        }
-        TextView title = (TextView)findViewById(R.id.dotransaction_title);        
+        }                
         belanjawandata = new BelanjawanData(this);
     }
 	

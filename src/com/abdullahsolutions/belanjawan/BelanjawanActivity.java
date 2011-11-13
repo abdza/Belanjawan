@@ -1,10 +1,18 @@
 package com.abdullahsolutions.belanjawan;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -55,12 +63,107 @@ public class BelanjawanActivity extends Activity {
     	return true;
     }
     
+    private boolean dumpdata(){
+    	SQLiteDatabase db = belanjawandata.getReadableDatabase();
+		final Cursor expenses = db.rawQuery("select bt._id as _id, date(bt.transactiondate) as transactiondate, b.name as name, bt.amount as amount from budget as b, budget_transaction as bt where bt.budget_id=b._id and b.budgettype='expenses' order by bt.transactiondate", null);
+		startManagingCursor(expenses);
+		File sdDir = Environment.getExternalStorageDirectory();
+		File rootdir = null;
+		if( sdDir.exists() && sdDir.canWrite()){
+			rootdir = new File(sdDir.getAbsolutePath() + "/belanjawan");
+			if(!rootdir.exists()){
+				rootdir.mkdirs();
+			}
+		}
+		FileOutputStream fos = null;
+		try {
+			getApplicationContext();
+			if(rootdir != null){
+				fos = new FileOutputStream(new File(rootdir.getAbsolutePath() + "/expenses.csv"));
+			}
+			else{
+				fos = openFileOutput("expenses.csv",Context.MODE_PRIVATE);
+			}
+			while(expenses.moveToNext()){
+				fos.write((expenses.getString(1) + "," + expenses.getString(2) + "," + expenses.getDouble(3) + "\n").getBytes());				
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			if( fos != null ){
+				try {
+					fos.flush();
+					fos.close();
+				}
+				catch (IOException e) {
+					
+				}
+			}
+		}
+		
+		final Cursor incomes = db.rawQuery("select bt._id as _id, date(bt.transactiondate) as transactiondate, b.name as name, bt.amount as amount from budget as b, budget_transaction as bt where bt.budget_id=b._id and b.budgettype='income' order by bt.transactiondate", null);
+		startManagingCursor(incomes);
+		fos = null;
+		try {
+			getApplicationContext();
+			if(rootdir != null){
+				fos = new FileOutputStream(new File(rootdir.getAbsolutePath() + "/incomes.csv"));
+			}
+			else{
+				fos = openFileOutput("incomes.csv",Context.MODE_PRIVATE);
+			}
+			while(incomes.moveToNext()){
+				fos.write((incomes.getString(1) + "," + incomes.getString(2) + "," + incomes.getDouble(3) + "\n").getBytes());				
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			if( fos != null ){
+				try {
+					fos.flush();
+					fos.close();
+				}
+				catch (IOException e) {
+					
+				}
+			}
+		}
+		
+    	return true;
+    }
+    
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
     	switch (item.getItemId()){
     	case R.id.managebudget:
     		startActivity(new Intent(this,ManageBudgetActivity.class));
     		return true;
+    	case R.id.dumpdata:
+    		if(dumpdata()){
+    			 new AlertDialog.Builder(this)
+    		      	.setMessage("Data is dumped")
+    		      	.setPositiveButton("OK", null)
+    		      	.show();
+    			return true;	
+    		}
+    		else{
+    			new AlertDialog.Builder(this)
+  		      		.setMessage("Data failed to dump")
+  		      		.setPositiveButton("OK", null)
+  		      		.show();
+    			return false;	
+    		}
+    		
     	}
     	return false;
     }

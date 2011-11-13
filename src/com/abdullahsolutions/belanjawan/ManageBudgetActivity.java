@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
-import static android.provider.BaseColumns._ID;
 
 public class ManageBudgetActivity extends Activity {
 	private BelanjawanData belanjawandata;

@@ -148,6 +148,9 @@ public class BelanjawanActivity extends Activity {
     	case R.id.managebudget:
     		startActivity(new Intent(this,ManageBudgetActivity.class));
     		return true;
+    	case R.id.manageinstallments:
+    		startActivity(new Intent(this,ManageInstallmentsActivity.class));
+    		return true;
     	case R.id.dumpdata:
     		if(dumpdata()){
     			 new AlertDialog.Builder(this)

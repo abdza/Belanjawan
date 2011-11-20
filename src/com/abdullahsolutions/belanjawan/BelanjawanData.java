@@ -16,8 +16,9 @@ public class BelanjawanData extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		// TODO Auto-generated method stub
-		db.execSQL("create table budget (" + _ID +" integer primary key autoincrement, name text not null, budgettype text not null, amount real, budgetstart integer, budgetend integer);");		
+		db.execSQL("create table budget (" + _ID +" integer primary key autoincrement, name text not null, budgettype text not null, amount real, budgetstart integer, budgetend integer, installment_id integer);");		
 		db.execSQL("create table budget_transaction (" + _ID +" integer primary key autoincrement, amount real, transactiondate integer, budget_id integer not null, description text);");
+		db.execSQL("create table installments (" + _ID +" integer primary key autoincrement, name text not null, amount real, installmentstart integer, installmentend integer, monthly real, budget_id integer);");
 	}
 
 	@Override
@@ -25,6 +26,7 @@ public class BelanjawanData extends SQLiteOpenHelper {
 		// TODO Auto-generated method stub
 		db.execSQL("drop table if exists budget");
 		db.execSQL("drop table if exists budget_transaction");
+		db.execSQL("drop table if exists installments");
 		onCreate(db);
 	}
 

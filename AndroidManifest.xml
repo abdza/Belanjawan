@@ -18,6 +18,9 @@
 		<activity android:name=".ManageBudgetActivity"
 				  android:label="@string/managebudget_title">
 		</activity>
+		<activity android:name=".ManageInstallmentsActivity"
+				  android:label="@string/manageinstallments_title">
+		</activity>
 		<activity android:name=".EditBudgetActivity"
 				  android:label="@string/editbudget_title">
 		</activity>

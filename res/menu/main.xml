@@ -3,6 +3,9 @@
 <item android:id="@+id/managebudget"
 android:title="@string/managebudget_label"
 android:alphabeticShortcut="@string/managebudget_shortcut" />
+<item android:id="@+id/manageinstallments"
+android:title="@string/manageinstallments_label"
+android:alphabeticShortcut="@string/manageinstallments_shortcut" />
 <item android:id="@+id/dumpdata"
 android:title="@string/dumpdata_label"
 android:alphabeticShortcut="@string/dumpdata_shortcut" />

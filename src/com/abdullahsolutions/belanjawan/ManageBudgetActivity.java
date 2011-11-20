@@ -33,7 +33,6 @@ public class ManageBudgetActivity extends Activity {
 	
 	public void updateLists(){
 		SQLiteDatabase db = belanjawandata.getReadableDatabase();
-		//Cursor income = db.query("budget", FROM, "budgettype='income'", null, null, null, null);
 		Cursor income = db.rawQuery("select _id,name,amount from budget where budgettype='income'", null);
 		startManagingCursor(income);
 		SimpleCursorAdapter incomeadapter = new SimpleCursorAdapter(this,R.layout.budgetitem,income,FROM,TO);

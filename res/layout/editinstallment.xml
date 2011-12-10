@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+<TextView  
+	android:id="@+id/editinstallment_title"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/editinstallment_title"
+    />
+<TableLayout
+android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+>
+<TableRow
+android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+>
+<TextView  
+	android:id="@+id/installment_name_title"
+    android:text="@string/installment_name_title"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    />
+    <EditText  
+	android:id="@+id/installment_name"
+	android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    />
+</TableRow>
+<TableRow
+android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+>
+<TextView  
+	android:id="@+id/installment_amount_title"
+    android:text="@string/amount_title"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    />
+    <EditText  
+	android:id="@+id/installment_amount"
+	android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    />
+</TableRow>
+<TableRow
+android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+>
+<TextView  
+	android:id="@+id/installmentstart_title"
+    android:text="@string/installmentstart_title"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    />
+    <DatePicker  
+	android:id="@+id/installmentstart"
+	android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    />
+</TableRow>
+<TableRow
+android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+>
+<TextView  
+	android:id="@+id/installmentend_title"
+    android:text="@string/installmentend_title"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    />
+    <DatePicker  
+	android:id="@+id/installmentend"
+	android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    />
+</TableRow>
+<TableRow
+android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+>
+<Button android:id="@+id/saveinstallment"
+	android:layout_width="fill_parent"	
+	android:layout_height="wrap_content"
+	android:text="@string/save_label"
+	android:onClick="saveinstallment" />
+	</TableRow>
+</TableLayout>
+</LinearLayout>
